@@ -1,0 +1,7 @@
+{
+  "block.lilybloom.blooming_lily_pad": "Blooming Lily Pad",
+  "block.lilybloom.lily_flower": "Water Lily",
+  "block.lilybloom.potted_lily_flower": "Potted Water Lily",
+  "modmenu.descriptionTranslation.lilybloom": "Blooming lily pads as a separate block: grow them with bone meal, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. Required on both server and client.",
+  "modmenu.summaryTranslation.lilybloom": "Blooming lily pads and a Water Lily flower you can pot."
+}

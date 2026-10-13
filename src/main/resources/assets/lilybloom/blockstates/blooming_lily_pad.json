@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "lilybloom:block/blooming_lily_pad"
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad",
+        "y": 90
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad",
+        "y": 180
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad",
+        "y": 270
+      }
+    ]
+  }
+}

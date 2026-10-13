@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lily_flower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lilybloom:lily_flower"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "lilybloom:pink_dye_from_lily_flower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lily_flower"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lilybloom:pink_dye_from_lily_flower"
+    ]
+  }
+}

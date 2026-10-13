@@ -1,0 +1,7 @@
+{
+  "block.lilybloom.blooming_lily_pad": "Квітуче латаття",
+  "block.lilybloom.lily_flower": "Квітка латаття",
+  "block.lilybloom.potted_lily_flower": "Квітка латаття в горщику",
+  "modmenu.descriptionTranslation.lilybloom": "Квітуче латаття — окремий блок: кісткове борошно, самостійне цвітіння, генерація в болотах. Ножицями зрізається квітка латаття — її можна посадити в землю або в горщик. Потрібен і на сервері, і на клієнті.",
+  "modmenu.summaryTranslation.lilybloom": "Квітуче латаття і квітка латаття для горщика."
+}

@@ -1,0 +1,31 @@
+# Публикация релиза на Modrinth, CurseForge и GitHub Releases.
+# Запуск вручную: вкладка Actions -> release -> Run workflow.
+# Нужные секреты (Settings -> Secrets and variables -> Actions):
+#   MODRINTH_TOKEN, CURSEFORGE_TOKEN. GITHUB_TOKEN GitHub выдаёт сам.
+name: release
+on: [workflow_dispatch]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v6
+      - name: validate gradle wrapper
+        uses: gradle/actions/wrapper-validation@v6
+      - name: setup jdk
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distribution: 'microsoft'
+      - name: make gradle wrapper executable
+        run: chmod +x ./gradlew
+      - name: build and publish
+        run: ./gradlew build publishMods
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

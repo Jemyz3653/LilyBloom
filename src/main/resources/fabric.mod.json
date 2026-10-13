@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "lilybloom",
+	"version": "${version}",
+	"name": "Lily Bloom",
+	"description": "Blooming lily pads as a separate block: grow them with bone meal, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. Required on both server and client.",
+	"authors": [
+		"Jemyz3653"
+	],
+	"contributors": [
+		"Claude (AI by Anthropic): code, textures and models"
+	],
+	"contact": {
+		"homepage": "https://github.com/Jemyz3653/LilyBloom",
+		"sources": "https://github.com/Jemyz3653/LilyBloom",
+		"issues": "https://github.com/Jemyz3653/LilyBloom/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/lilybloom/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.jemyz3653.lilybloom.LilyBloom"
+		]
+	},
+	"mixins": [
+		"lilybloom.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.0",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-biome-api-v1": "*",
+		"fabric-creative-tab-api-v1": "*",
+		"fabric-registry-sync-v0": "*",
+		"fabric-resource-loader-v1": "*"
+	}
+}

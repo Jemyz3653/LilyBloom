@@ -1,0 +1,7 @@
+{
+  "block.lilybloom.blooming_lily_pad": "Цветущая кувшинка",
+  "block.lilybloom.lily_flower": "Цветок кувшинки",
+  "block.lilybloom.potted_lily_flower": "Цветок кувшинки в горшке",
+  "modmenu.descriptionTranslation.lilybloom": "Цветущие кувшинки — отдельный блок: костная мука, самостоятельное цветение, генерация в болотах. Ножницами срезается цветок кувшинки — его можно посадить на землю или в горшок. Нужен и на сервере, и на клиенте.",
+  "modmenu.summaryTranslation.lilybloom": "Цветущие кувшинки и цветок кувшинки для горшка."
+}
