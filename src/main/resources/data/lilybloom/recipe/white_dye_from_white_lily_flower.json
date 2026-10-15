@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "white_dye",
+  "ingredients": [
+    "lilybloom:white_lily_flower"
+  ],
+  "result": {
+    "id": "minecraft:white_dye"
+  }
+}

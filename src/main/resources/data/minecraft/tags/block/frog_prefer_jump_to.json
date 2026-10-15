@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "lilybloom:blooming_lily_pad"
+    "lilybloom:blooming_lily_pad",
+    "lilybloom:white_blooming_lily_pad",
+    "lilybloom:yellow_blooming_lily_pad",
+    "lilybloom:blue_blooming_lily_pad"
   ]
 }

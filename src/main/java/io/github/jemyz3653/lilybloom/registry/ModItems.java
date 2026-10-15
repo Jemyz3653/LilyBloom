@@ -1,5 +1,9 @@
 package io.github.jemyz3653.lilybloom.registry;
 
+import io.github.jemyz3653.lilybloom.LilyColor;
+import java.util.Collections;
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.function.BiFunction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -7,22 +11,46 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
+import org.jspecify.annotations.Nullable;
 
 public final class ModItems {
-    /** Ставится на воду, как обычная кувшинка. */
-    public static final Item BLOOMING_LILY_PAD = registerBlockItem(
-            ModBlocks.BLOOMING_LILY_PAD, PlaceOnWaterBlockItem::new,
-            new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM));
+    /** Цветущая кувшинка каждого цвета — ставится на воду, как обычная кувшинка (сразу распустившейся). */
+    public static final Map<LilyColor, Item> BLOOMING_LILY_PADS;
+    /** Цветок кувшинки каждого цвета — ставится на землю и сажается в цветочный горшок. */
+    public static final Map<LilyColor, Item> LILY_FLOWERS;
 
-    /** Ставится на землю и сажается в цветочный горшок. */
-    public static final Item LILY_FLOWER = registerBlockItem(
-            ModBlocks.LILY_FLOWER, BlockItem::new,
-            new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM));
+    static {
+        Map<LilyColor, Item> blooming = new EnumMap<>(LilyColor.class);
+        Map<LilyColor, Item> flowers = new EnumMap<>(LilyColor.class);
+        for (LilyColor color : LilyColor.values()) {
+            blooming.put(color, registerBlockItem(ModBlocks.BLOOMING_LILY_PADS.get(color), PlaceOnWaterBlockItem::new,
+                    new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM)));
+            flowers.put(color, registerBlockItem(ModBlocks.LILY_FLOWERS.get(color), BlockItem::new,
+                    new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM)));
+        }
+        BLOOMING_LILY_PADS = Collections.unmodifiableMap(blooming);
+        LILY_FLOWERS = Collections.unmodifiableMap(flowers);
+    }
+
+    /** Розовые — для кода, написанного под 1.0.x. */
+    public static final Item BLOOMING_LILY_PAD = BLOOMING_LILY_PADS.get(LilyColor.PINK);
+    public static final Item LILY_FLOWER = LILY_FLOWERS.get(LilyColor.PINK);
 
     private ModItems() {
+    }
+
+    /** Цвет цветка кувшинки или null, если это не цветок кувшинки. */
+    public static @Nullable LilyColor flowerColor(final ItemStack stack) {
+        for (Map.Entry<LilyColor, Item> entry : LILY_FLOWERS.entrySet()) {
+            if (stack.is(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        return null;
     }
 
     /** Так же, как Items.registerBlock в ванилле: id предмета = id блока, перевод берётся у блока. */

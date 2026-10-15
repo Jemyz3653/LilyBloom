@@ -1,7 +1,16 @@
 {
-  "block.lilybloom.blooming_lily_pad": "Blooming Lily Pad",
-  "block.lilybloom.lily_flower": "Water Lily",
-  "block.lilybloom.potted_lily_flower": "Potted Water Lily",
-  "modmenu.descriptionTranslation.lilybloom": "Blooming lily pads as a separate block: grow them with bone meal, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. Required on both server and client.",
-  "modmenu.summaryTranslation.lilybloom": "Blooming lily pads and a Water Lily flower you can pot."
+  "block.lilybloom.blooming_lily_pad": "Pink Blooming Lily Pad",
+  "block.lilybloom.lily_flower": "Pink Water Lily",
+  "block.lilybloom.potted_lily_flower": "Potted Pink Water Lily",
+  "block.lilybloom.white_blooming_lily_pad": "White Blooming Lily Pad",
+  "block.lilybloom.white_lily_flower": "White Water Lily",
+  "block.lilybloom.potted_white_lily_flower": "Potted White Water Lily",
+  "block.lilybloom.yellow_blooming_lily_pad": "Yellow Blooming Lily Pad",
+  "block.lilybloom.yellow_lily_flower": "Yellow Water Lily",
+  "block.lilybloom.potted_yellow_lily_flower": "Potted Yellow Water Lily",
+  "block.lilybloom.blue_blooming_lily_pad": "Blue Blooming Lily Pad",
+  "block.lilybloom.blue_lily_flower": "Blue Water Lily",
+  "block.lilybloom.potted_blue_lily_flower": "Potted Blue Water Lily",
+  "modmenu.descriptionTranslation.lilybloom": "Blooming lily pads in pink, white, yellow and blue with growth stages (bud, half-open, bloom). Bone meal grows them, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. Required on both server and client.",
+  "modmenu.summaryTranslation.lilybloom": "Blooming lily pads in four colours and a Water Lily flower you can pot."
 }

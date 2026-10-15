@@ -3,6 +3,7 @@
 	"package": "io.github.jemyz3653.lilybloom.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
+		"BoneMealItemMixin",
 		"LilyPadBlockMixin",
 		"ShearsDispenseItemBehaviorMixin",
 		"WalkNodeEvaluatorMixin"

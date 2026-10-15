@@ -10,13 +10,14 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Lily Bloom — цветущие кувшинки и цветок кувшинки.
+ * Lily Bloom — цветущие кувшинки четырёх цветов со стадиями цветения и цветок кувшинки.
  *
  * <p>Один мод для сервера и клиента: блоки и предметы регистрируются одинаково с обеих сторон
  * (поэтому мод нужен и там, и там), а вся игровая логика — костная мука, ножницы, самостоятельное
@@ -48,8 +49,8 @@ public final class LilyBloom implements ModInitializer {
         ModItems.init();
 
         CreativeModeTabEvents.modifyOutputEvent(NATURAL_BLOCKS).register(output -> {
-            output.insertAfter(Items.LILY_PAD, ModItems.BLOOMING_LILY_PAD);
-            output.insertAfter(Items.LILY_OF_THE_VALLEY, ModItems.LILY_FLOWER);
+            output.insertAfter(Items.LILY_PAD, ModItems.BLOOMING_LILY_PADS.values().toArray(new ItemLike[0]));
+            output.insertAfter(Items.LILY_OF_THE_VALLEY, ModItems.LILY_FLOWERS.values().toArray(new ItemLike[0]));
         });
 
         if (LilyBloomConfig.get().worldGeneration) {
@@ -60,7 +61,7 @@ public final class LilyBloom implements ModInitializer {
         }
 
         LilyBloomConfig config = LilyBloomConfig.get();
-        LOGGER.info("Lily Bloom loaded: natural blooming={} (chance 1/{}, max {} nearby, only day={}), world generation={}",
-                config.naturalBlooming, config.bloomChance, config.maxBloomingNearby, config.onlyDuringDay, config.worldGeneration);
+        LOGGER.info("Lily Bloom loaded: natural blooming={} (bud 1/{}, stage 1/{}, max {} nearby, only day={}), world generation={}",
+                config.naturalBlooming, config.budChance, config.growChance, config.maxBloomingNearby, config.onlyDuringDay, config.worldGeneration);
     }
 }

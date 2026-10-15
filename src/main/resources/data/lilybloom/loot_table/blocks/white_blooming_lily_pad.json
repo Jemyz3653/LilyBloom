@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:white_blooming_lily_pad",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:white_blooming_lily_pad",
+                "state": {
+                  "stage": "bloom"
+                }
+              }
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:lily_pad"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "lilybloom:blocks/white_blooming_lily_pad"
+}

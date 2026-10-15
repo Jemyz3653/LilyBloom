@@ -1,6 +1,40 @@
 {
   "variants": {
-    "": [
+    "stage=bud": [
+      {
+        "model": "lilybloom:block/blooming_lily_pad_bud"
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad_bud",
+        "y": 90
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad_bud",
+        "y": 180
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad_bud",
+        "y": 270
+      }
+    ],
+    "stage=half_open": [
+      {
+        "model": "lilybloom:block/blooming_lily_pad_half_open"
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad_half_open",
+        "y": 90
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad_half_open",
+        "y": 180
+      },
+      {
+        "model": "lilybloom:block/blooming_lily_pad_half_open",
+        "y": 270
+      }
+    ],
+    "stage=bloom": [
       {
         "model": "lilybloom:block/blooming_lily_pad"
       },

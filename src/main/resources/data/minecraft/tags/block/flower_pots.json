@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "lilybloom:potted_lily_flower"
+    "lilybloom:potted_lily_flower",
+    "lilybloom:potted_white_lily_flower",
+    "lilybloom:potted_yellow_lily_flower",
+    "lilybloom:potted_blue_lily_flower"
   ]
 }

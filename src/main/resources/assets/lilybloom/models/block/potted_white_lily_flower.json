@@ -1,0 +1,6 @@
+{
+  "parent": "lilybloom:block/template_potted_lily_flower",
+  "textures": {
+    "flower": "lilybloom:block/white_lily_flower"
+  }
+}

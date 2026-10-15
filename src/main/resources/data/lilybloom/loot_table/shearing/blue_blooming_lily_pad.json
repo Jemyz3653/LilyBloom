@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block_interact",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "lilybloom:blue_lily_flower"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "lilybloom:shearing/blue_blooming_lily_pad"
+}

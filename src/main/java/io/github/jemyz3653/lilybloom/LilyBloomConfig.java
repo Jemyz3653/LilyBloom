@@ -19,17 +19,20 @@ public final class LilyBloomConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     private static LilyBloomConfig instance = new LilyBloomConfig();
 
-    /** Обычные кувшинки сами расцветают от случайных тиков (под открытым небом). Работает и в уже сгенерированных чанках. */
+    /** Обычные кувшинки сами пускают бутоны, а бутоны сами распускаются (под открытым небом). Работает и в уже сгенерированных чанках. */
     public boolean naturalBlooming = true;
     /**
-     * Шанс расцвести за один случайный тик: 1 из N.
+     * Шанс, что обычная кувшинка пустит бутон, за один случайный тик: 1 из N.
      * При randomTickSpeed = 3 конкретный блок получает случайный тик в среднем раз в ~68 секунд,
-     * значит при 25 кувшинка расцветает в среднем примерно за полчаса игрового времени рядом с игроком.
+     * значит при 150 бутон появляется в среднем примерно за 3 часа игрового времени рядом с игроком.
+     * (В 1.0.x было bloomChance = 25 сразу до цветка; старое поле больше не читается.)
      */
-    public int bloomChance = 25;
-    /** Если в области 7×3×7 вокруг уже столько цветущих кувшинок или больше, новая сама не расцветёт. 0 — без ограничения. Костной муке не мешает. */
+    public int budChance = 150;
+    /** Шанс перейти на следующую стадию (бутон → полураскрытый → цветок) за случайный тик: 1 из N. При 20 — около 20 минут на стадию. */
+    public int growChance = 20;
+    /** Если в области 7×3×7 вокруг уже столько кувшинок с бутоном или цветком, новый бутон сам не появится. 0 — без ограничения. Костной муке не мешает. */
     public int maxBloomingNearby = 3;
-    /** Расцветать самостоятельно только днём. */
+    /** Бутоны появляются и распускаются сами только днём. */
     public boolean onlyDuringDay = true;
     /** Генерация цветущих кувшинок в новых чанках там же, где генерируются обычные (болота, мангровые болота). */
     public boolean worldGeneration = true;
@@ -49,7 +52,8 @@ public final class LilyBloomConfig {
             }
         }
         instance = loaded != null ? loaded : new LilyBloomConfig();
-        instance.bloomChance = Math.max(1, instance.bloomChance);
+        instance.budChance = Math.max(1, instance.budChance);
+        instance.growChance = Math.max(1, instance.growChance);
         instance.maxBloomingNearby = Math.max(0, instance.maxBloomingNearby);
 
         try {

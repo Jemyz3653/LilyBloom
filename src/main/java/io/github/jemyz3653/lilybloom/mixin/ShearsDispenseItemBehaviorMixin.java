@@ -1,7 +1,6 @@
 package io.github.jemyz3653.lilybloom.mixin;
 
 import io.github.jemyz3653.lilybloom.block.BloomingLilyPadBlock;
-import io.github.jemyz3653.lilybloom.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.ShearsDispenseItemBehavior;
 import net.minecraft.server.level.ServerLevel;
@@ -19,7 +18,7 @@ public abstract class ShearsDispenseItemBehaviorMixin {
     private static void lilybloom$shearBloomingLilyPad(final ServerLevel level, final ItemStack tool, final BlockPos pos,
                                                        final CallbackInfoReturnable<Boolean> cir) {
         BlockState state = level.getBlockState(pos);
-        if (state.is(ModBlocks.BLOOMING_LILY_PAD)) {
+        if (BloomingLilyPadBlock.isFullBloom(state)) {
             BloomingLilyPadBlock.shear(level, pos, state, tool, null);
             cir.setReturnValue(true);
         }

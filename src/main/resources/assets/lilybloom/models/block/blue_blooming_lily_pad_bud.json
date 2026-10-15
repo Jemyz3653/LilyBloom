@@ -1,0 +1,7 @@
+{
+  "parent": "lilybloom:block/template_blooming_lily_pad_bud",
+  "textures": {
+    "pad": "lilybloom:block/blooming_lily_pad",
+    "flower": "lilybloom:block/blue_lily_flower"
+  }
+}

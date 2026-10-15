@@ -3,15 +3,31 @@
   "pools": [
     {
       "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "lilybloom:blooming_lily_pad"
-        }
-      ],
       "condition": {
         "type": "minecraft:survives_explosion"
-      }
+      },
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:blooming_lily_pad",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:blooming_lily_pad",
+                "state": {
+                  "stage": "bloom"
+                }
+              }
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:lily_pad"
+            }
+          ]
+        }
+      ]
     }
   ],
   "random_sequence": "lilybloom:blocks/blooming_lily_pad"

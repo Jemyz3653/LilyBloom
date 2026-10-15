@@ -1,8 +1,12 @@
 package io.github.jemyz3653.lilybloom.registry;
 
 import io.github.jemyz3653.lilybloom.LilyBloom;
+import io.github.jemyz3653.lilybloom.LilyColor;
 import io.github.jemyz3653.lilybloom.block.BloomingLilyPadBlock;
 import io.github.jemyz3653.lilybloom.block.LilyFlowerBlock;
+import java.util.Collections;
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.function.Function;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,43 +20,68 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
+/**
+ * Блоки по цветам. Розовые сохраняют ID из 1.0.x: blooming_lily_pad, lily_flower, potted_lily_flower.
+ * Остальные: white_blooming_lily_pad, white_lily_flower, potted_white_lily_flower и т. д.
+ */
 public final class ModBlocks {
-    /** Цветущая кувшинка — отдельный блок (не вариант/blockstate обычной кувшинки). Свойства как у ванильной кувшинки. */
-    public static final Block BLOOMING_LILY_PAD = register(
-            "blooming_lily_pad",
-            BloomingLilyPadBlock::new,
-            BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.PLANT)
-                    .instabreak()
-                    .sound(SoundType.LILY_PAD)
-                    .noOcclusion()
-                    .pushReaction(PushReaction.POPPED));
+    /** Цветущая кувшинка каждого цвета — отдельный блок со стадиями бутон / полураскрытый / цветок. */
+    public static final Map<LilyColor, Block> BLOOMING_LILY_PADS;
+    /** Цветок кувшинки каждого цвета — ставится на землю как обычный цветок. */
+    public static final Map<LilyColor, Block> LILY_FLOWERS;
+    /** Цветок кувшинки в горшке. Конструктор FlowerPotBlock сам связывает цветок с горшком. */
+    public static final Map<LilyColor, Block> POTTED_LILY_FLOWERS;
 
-    /** Цветок кувшинки — ставится на землю как обычный цветок (трава, земля, мох, грядка...). */
-    public static final Block LILY_FLOWER = register(
-            "lily_flower",
-            properties -> new LilyFlowerBlock(MobEffects.WATER_BREATHING, 8.0F, properties),
-            BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_PINK)
-                    .noCollision()
-                    .instabreak()
-                    .sound(SoundType.GRASS)
-                    .offsetType(BlockBehaviour.OffsetType.XZ)
-                    .pushReaction(PushReaction.POPPED));
+    static {
+        Map<LilyColor, Block> blooming = new EnumMap<>(LilyColor.class);
+        Map<LilyColor, Block> flowers = new EnumMap<>(LilyColor.class);
+        Map<LilyColor, Block> potted = new EnumMap<>(LilyColor.class);
+        for (LilyColor color : LilyColor.values()) {
+            blooming.put(color, register(color.id("blooming_lily_pad"),
+                    properties -> new BloomingLilyPadBlock(color, properties),
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.PLANT)
+                            .instabreak()
+                            .sound(SoundType.LILY_PAD)
+                            .noOcclusion()
+                            .pushReaction(PushReaction.POPPED)));
+            Block flower = register(color.id("lily_flower"),
+                    properties -> new LilyFlowerBlock(MobEffects.WATER_BREATHING, 8.0F, properties),
+                    BlockBehaviour.Properties.of()
+                            .mapColor(flowerMapColor(color))
+                            .noCollision()
+                            .instabreak()
+                            .sound(SoundType.GRASS)
+                            .offsetType(BlockBehaviour.OffsetType.XZ)
+                            .pushReaction(PushReaction.POPPED));
+            flowers.put(color, flower);
+            potted.put(color, register(color.pottedId(),
+                    properties -> new FlowerPotBlock(flower, properties),
+                    BlockBehaviour.Properties.of()
+                            .instabreak()
+                            .noOcclusion()
+                            .pushReaction(PushReaction.POPPED)));
+        }
+        BLOOMING_LILY_PADS = Collections.unmodifiableMap(blooming);
+        LILY_FLOWERS = Collections.unmodifiableMap(flowers);
+        POTTED_LILY_FLOWERS = Collections.unmodifiableMap(potted);
+    }
 
-    /**
-     * Цветок кувшинки в горшке. Конструктор FlowerPotBlock сам записывает связку «цветок → горшок»,
-     * поэтому цветок сажается в обычный цветочный горшок ПКМ, как любой ванильный цветок.
-     */
-    public static final Block POTTED_LILY_FLOWER = register(
-            "potted_lily_flower",
-            properties -> new FlowerPotBlock(LILY_FLOWER, properties),
-            BlockBehaviour.Properties.of()
-                    .instabreak()
-                    .noOcclusion()
-                    .pushReaction(PushReaction.POPPED));
+    /** Розовые — для кода, написанного под 1.0.x. */
+    public static final Block BLOOMING_LILY_PAD = BLOOMING_LILY_PADS.get(LilyColor.PINK);
+    public static final Block LILY_FLOWER = LILY_FLOWERS.get(LilyColor.PINK);
+    public static final Block POTTED_LILY_FLOWER = POTTED_LILY_FLOWERS.get(LilyColor.PINK);
 
     private ModBlocks() {
+    }
+
+    private static MapColor flowerMapColor(final LilyColor color) {
+        return switch (color) {
+            case PINK -> MapColor.COLOR_PINK;
+            case WHITE -> MapColor.SNOW;
+            case YELLOW -> MapColor.COLOR_YELLOW;
+            case BLUE -> MapColor.COLOR_LIGHT_BLUE;
+        };
     }
 
     private static Block register(final String name, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
