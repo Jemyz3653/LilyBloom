@@ -3,7 +3,7 @@
 	"id": "lilybloom",
 	"version": "${version}",
 	"name": "Lily Bloom",
-	"description": "Blooming lily pads in pink, white, yellow and blue, with growth stages (bud, half-open bud, bloom). Bone meal grows them, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. Ships 32x and 64x textures that switch on by themselves with packs like Faithful. Required on both server and client.",
+	"description": "Blooming lily pads in pink, white, yellow and blue, with growth stages (bud, half-open bud, bloom), and giant 4x4 lily pads with a big flower of the same colours. Bone meal grows them, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. Ships 32x and 64x textures that switch on by themselves with packs like Faithful. Required on both server and client.",
 	"authors": [
 		"Jemyz3653"
 	],

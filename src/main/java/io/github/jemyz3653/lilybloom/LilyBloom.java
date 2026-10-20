@@ -2,6 +2,9 @@ package io.github.jemyz3653.lilybloom;
 
 import io.github.jemyz3653.lilybloom.registry.ModBlocks;
 import io.github.jemyz3653.lilybloom.registry.ModItems;
+import io.github.jemyz3653.lilybloom.world.GiantLilyPadFeature;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
@@ -39,6 +42,8 @@ public final class LilyBloom implements ModInitializer {
 
     public static final ResourceKey<PlacedFeature> BLOOMING_LILY_PATCH =
             ResourceKey.create(Registries.PLACED_FEATURE, id("patch_blooming_lily_pad"));
+    public static final ResourceKey<PlacedFeature> GIANT_LILY_PAD =
+            ResourceKey.create(Registries.PLACED_FEATURE, id("giant_lily_pad"));
 
     public static Identifier id(final String path) {
         return Identifier.fromNamespaceAndPath(MOD_ID, path);
@@ -49,6 +54,7 @@ public final class LilyBloom implements ModInitializer {
         LilyBloomConfig.load();
         ModBlocks.init();
         ModItems.init();
+        Registry.register(BuiltInRegistries.FEATURE_TYPE, id("giant_lily_pad"), GiantLilyPadFeature.CODEC);
 
         // цветы кувшинки горят, как остальные маленькие цветы (у ванильных 60 / 100); сами кувшинки, как и ванильная, не горят
         for (Block flower : ModBlocks.LILY_FLOWERS.values()) {
@@ -57,6 +63,7 @@ public final class LilyBloom implements ModInitializer {
 
         CreativeModeTabEvents.modifyOutputEvent(NATURAL_BLOCKS).register(output -> {
             output.insertAfter(Items.LILY_PAD, ModItems.BLOOMING_LILY_PADS.values().toArray(new ItemLike[0]));
+            output.insertAfter(ModItems.BLOOMING_LILY_PADS.get(LilyColor.BLUE), ModItems.GIANT_LILY_PAD);
             output.insertAfter(Items.LILY_OF_THE_VALLEY, ModItems.LILY_FLOWERS.values().toArray(new ItemLike[0]));
         });
 
@@ -65,6 +72,10 @@ public final class LilyBloom implements ModInitializer {
                     context -> context.hasPlacedFeature(VANILLA_LILY_PATCH),
                     GenerationStep.Decoration.VEGETAL_DECORATION,
                     BLOOMING_LILY_PATCH);
+            BiomeModifications.addFeature(
+                    context -> context.hasPlacedFeature(VANILLA_LILY_PATCH),
+                    GenerationStep.Decoration.VEGETAL_DECORATION,
+                    GIANT_LILY_PAD);
         }
 
         LilyBloomConfig config = LilyBloomConfig.get();

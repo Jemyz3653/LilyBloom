@@ -1,6 +1,7 @@
 package io.github.jemyz3653.lilybloom.mixin;
 
 import io.github.jemyz3653.lilybloom.block.BloomingLilyPadBlock;
+import io.github.jemyz3653.lilybloom.block.GiantLilyPadBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.ShearsDispenseItemBehavior;
 import net.minecraft.server.level.ServerLevel;
@@ -11,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** Раздатчик с ножницами тоже срезает цветок с цветущей кувшинки (как стрижёт улей). */
+/** Раздатчик с ножницами тоже срезает цветок с цветущей и с крупной кувшинки (как стрижёт улей). */
 @Mixin(ShearsDispenseItemBehavior.class)
 public abstract class ShearsDispenseItemBehaviorMixin {
     @Inject(method = "tryShearBeehive", at = @At("HEAD"), cancellable = true)
@@ -20,6 +21,9 @@ public abstract class ShearsDispenseItemBehaviorMixin {
         BlockState state = level.getBlockState(pos);
         if (BloomingLilyPadBlock.isFullBloom(state)) {
             BloomingLilyPadBlock.shear(level, pos, state, tool, null);
+            cir.setReturnValue(true);
+        } else if (GiantLilyPadBlock.isFullBloom(state)) {
+            GiantLilyPadBlock.shear(level, pos, state, tool, null);
             cir.setReturnValue(true);
         }
     }

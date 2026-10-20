@@ -11,10 +11,11 @@
   "block.lilybloom.blue_blooming_lily_pad": "Голубая цветущая кувшинка",
   "block.lilybloom.blue_lily_flower": "Голубой цветок кувшинки",
   "block.lilybloom.potted_blue_lily_flower": "Голубой цветок кувшинки в горшке",
-  "modmenu.descriptionTranslation.lilybloom": "Цветущие кувшинки четырёх цветов (розовые, белые, жёлтые, голубые) со стадиями: бутон, полураскрытый бутон, цветок. Растут от костной муки, распускаются сами и генерируются в болотах. Ножницами срезается цветок кувшинки — его можно посадить на землю или в горшок. Нужен и на сервере, и на клиенте.",
-  "modmenu.summaryTranslation.lilybloom": "Цветущие кувшинки четырёх цветов и цветок кувшинки для горшка.",
+  "block.lilybloom.giant_lily_pad": "Крупная кувшинка",
   "pack.lilybloom.hd_32x": "Lily Bloom 32x",
   "pack.lilybloom.hd_32x.description": "Текстуры Lily Bloom для паков 32x (Faithful 32x). Включается сам",
   "pack.lilybloom.hd_64x": "Lily Bloom 64x",
-  "pack.lilybloom.hd_64x.description": "Текстуры Lily Bloom для паков 64x (Faithful 64x). Включается сам"
+  "pack.lilybloom.hd_64x.description": "Текстуры Lily Bloom для паков 64x (Faithful 64x). Включается сам",
+  "modmenu.descriptionTranslation.lilybloom": "Цветущие кувшинки четырёх цветов (розовые, белые, жёлтые, голубые) со стадиями: бутон, полураскрытый бутон, цветок, и крупные кувшинки 4×4 с большим цветком тех же цветов. Растут от костной муки, распускаются сами и генерируются в болотах. Ножницами срезается цветок кувшинки — его можно посадить на землю или в горшок. Текстуры 32x и 64x включаются сами с паками вроде Faithful. Нужен и на сервере, и на клиенте.",
+  "modmenu.summaryTranslation.lilybloom": "Цветущие и крупные кувшинки четырёх цветов и цветок кувшинки для горшка."
 }

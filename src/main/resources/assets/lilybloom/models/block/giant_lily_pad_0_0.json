@@ -1,0 +1,84 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "lilybloom:block/giant_lily_pad",
+    "pad": "lilybloom:block/giant_lily_pad",
+    "rim": "lilybloom:block/giant_lily_pad_rim"
+  },
+  "elements": [
+    {
+      "from": [0, 0.25, 0],
+      "to": [16, 0.25, 16],
+      "faces": {
+        "down": {
+          "uv": [0, 4, 4, 0],
+          "texture": "#pad"
+        },
+        "up": {
+          "uv": [0, 0, 4, 4],
+          "texture": "#pad"
+        }
+      }
+    },
+    {
+      "from": [5.937, 0.25, 14.261],
+      "to": [10.671, 3.25, 14.261],
+      "rotation": {
+        "origin": [8.304, 0.25, 14.261],
+        "x": 0,
+        "y": 53.182,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.734, 3.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.734, 11.0],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [8.703, 0.25, 11.07],
+      "to": [13.437, 3.25, 11.07],
+      "rotation": {
+        "origin": [11.07, 0.25, 11.07],
+        "x": 0,
+        "y": 45,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.734, 3.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.734, 11.0],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [11.894, 0.25, 8.304],
+      "to": [16.628, 3.25, 8.304],
+      "rotation": {
+        "origin": [14.261, 0.25, 8.304],
+        "x": 0,
+        "y": 36.818,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.734, 3.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.734, 11.0],
+          "texture": "#rim"
+        }
+      }
+    }
+  ]
+}

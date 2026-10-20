@@ -1,6 +1,7 @@
 package io.github.jemyz3653.lilybloom.registry;
 
 import io.github.jemyz3653.lilybloom.LilyColor;
+import io.github.jemyz3653.lilybloom.item.GiantLilyPadItem;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
@@ -39,6 +40,10 @@ public final class ModItems {
     /** Розовые — для кода, написанного под 1.0.x. */
     public static final Item BLOOMING_LILY_PAD = BLOOMING_LILY_PADS.get(LilyColor.PINK);
     public static final Item LILY_FLOWER = LILY_FLOWERS.get(LilyColor.PINK);
+
+    /** Крупная кувшинка: ставится на воду и занимает 4×4 блока. */
+    public static final Item GIANT_LILY_PAD = registerBlockItem(ModBlocks.GIANT_LILY_PAD, GiantLilyPadItem::new,
+            new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH));
 
     private ModItems() {
     }
