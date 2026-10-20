@@ -12,10 +12,15 @@ import java.nio.file.Path;
 import net.fabricmc.loader.api.FabricLoader;
 
 /**
- * config/lilybloom.json. Читается при запуске. Имеет значение только на сервере
- * (в одиночной игре — на встроенном сервере); на клиенте, который заходит на сервер, ни на что не влияет.
+ * config/lilybloom.json. Читается при запуске. Всё, кроме {@code hdTextures}, имеет значение только на сервере
+ * (в одиночной игре — на встроенном сервере); {@code hdTextures} — настройка клиента.
  */
 public final class LilyBloomConfig {
+    public static final String HD_AUTO = "auto";
+    public static final String HD_32 = "32x";
+    public static final String HD_64 = "64x";
+    public static final String HD_OFF = "off";
+
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     private static LilyBloomConfig instance = new LilyBloomConfig();
 
@@ -36,6 +41,11 @@ public final class LilyBloomConfig {
     public boolean onlyDuringDay = true;
     /** Генерация цветущих кувшинок в новых чанках там же, где генерируются обычные (болота, мангровые болота). */
     public boolean worldGeneration = true;
+    /**
+     * Клиент: текстуры 32x/64x в стиле Faithful. "auto" — сами включаются, если ресурспак делает обычную кувшинку
+     * 32x или 64x; "32x" / "64x" — всегда; "off" — не трогать (паки можно включить вручную в списке ресурспаков).
+     */
+    public String hdTextures = HD_AUTO;
 
     public static LilyBloomConfig get() {
         return instance;
@@ -55,6 +65,12 @@ public final class LilyBloomConfig {
         instance.budChance = Math.max(1, instance.budChance);
         instance.growChance = Math.max(1, instance.growChance);
         instance.maxBloomingNearby = Math.max(0, instance.maxBloomingNearby);
+        String hd = instance.hdTextures == null ? HD_AUTO : instance.hdTextures.trim().toLowerCase(java.util.Locale.ROOT);
+        if (!hd.equals(HD_AUTO) && !hd.equals(HD_32) && !hd.equals(HD_64) && !hd.equals(HD_OFF)) {
+            LilyBloom.LOGGER.warn("Unknown hdTextures value '{}' in {}, using '{}' (allowed: auto, 32x, 64x, off)", instance.hdTextures, path, HD_AUTO);
+            hd = HD_AUTO;
+        }
+        instance.hdTextures = hd;
 
         try {
             Files.createDirectories(path.getParent());

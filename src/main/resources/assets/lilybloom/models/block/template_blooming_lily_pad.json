@@ -10,11 +10,13 @@
       "faces": {
         "down": {
           "uv": [0, 16, 16, 0],
-          "texture": "#pad"
+          "texture": "#pad",
+          "tintindex": 0
         },
         "up": {
           "uv": [0, 0, 16, 16],
-          "texture": "#pad"
+          "texture": "#pad",
+          "tintindex": 0
         }
       }
     },

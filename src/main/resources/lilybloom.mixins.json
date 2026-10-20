@@ -8,6 +8,10 @@
 		"ShearsDispenseItemBehaviorMixin",
 		"WalkNodeEvaluatorMixin"
 	],
+	"client": [
+		"client.BlockColorsMixin",
+		"client.PackRepositoryMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},

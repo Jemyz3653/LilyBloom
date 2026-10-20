@@ -1,0 +1,88 @@
+{
+  "type": "minecraft:block_interact",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:giant_lily_pad",
+                "state": {
+                  "flower": "pink",
+                  "stage": "bloom"
+                }
+              },
+              "modifier": [
+                {
+                  "type": "minecraft:set_count",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:white_lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:giant_lily_pad",
+                "state": {
+                  "flower": "white",
+                  "stage": "bloom"
+                }
+              },
+              "modifier": [
+                {
+                  "type": "minecraft:set_count",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:yellow_lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:giant_lily_pad",
+                "state": {
+                  "flower": "yellow",
+                  "stage": "bloom"
+                }
+              },
+              "modifier": [
+                {
+                  "type": "minecraft:set_count",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:blue_lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:giant_lily_pad",
+                "state": {
+                  "flower": "blue",
+                  "stage": "bloom"
+                }
+              },
+              "modifier": [
+                {
+                  "type": "minecraft:set_count",
+                  "count": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "lilybloom:shearing/giant_lily_pad"
+}

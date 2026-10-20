@@ -3,6 +3,7 @@ package io.github.jemyz3653.lilybloom.registry;
 import io.github.jemyz3653.lilybloom.LilyBloom;
 import io.github.jemyz3653.lilybloom.LilyColor;
 import io.github.jemyz3653.lilybloom.block.BloomingLilyPadBlock;
+import io.github.jemyz3653.lilybloom.block.GiantLilyPadBlock;
 import io.github.jemyz3653.lilybloom.block.LilyFlowerBlock;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -71,6 +72,15 @@ public final class ModBlocks {
     public static final Block BLOOMING_LILY_PAD = BLOOMING_LILY_PADS.get(LilyColor.PINK);
     public static final Block LILY_FLOWER = LILY_FLOWERS.get(LilyColor.PINK);
     public static final Block POTTED_LILY_FLOWER = POTTED_LILY_FLOWERS.get(LilyColor.PINK);
+
+    /** Крупная кувшинка 4×4 (16 одинаковых блоков с координатами части внутри листа). */
+    public static final Block GIANT_LILY_PAD = register("giant_lily_pad", GiantLilyPadBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .instabreak()
+                    .sound(SoundType.LILY_PAD)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.POPPED));
 
     private ModBlocks() {
     }
