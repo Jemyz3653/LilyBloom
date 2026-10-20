@@ -5,12 +5,14 @@ import io.github.jemyz3653.lilybloom.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import org.slf4j.Logger;
@@ -47,6 +49,11 @@ public final class LilyBloom implements ModInitializer {
         LilyBloomConfig.load();
         ModBlocks.init();
         ModItems.init();
+
+        // цветы кувшинки горят, как остальные маленькие цветы (у ванильных 60 / 100); сами кувшинки, как и ванильная, не горят
+        for (Block flower : ModBlocks.LILY_FLOWERS.values()) {
+            FlammableBlockRegistry.getDefaultInstance().add(flower, 60, 100);
+        }
 
         CreativeModeTabEvents.modifyOutputEvent(NATURAL_BLOCKS).register(output -> {
             output.insertAfter(Items.LILY_PAD, ModItems.BLOOMING_LILY_PADS.values().toArray(new ItemLike[0]));

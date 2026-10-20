@@ -12,5 +12,9 @@
   "block.lilybloom.blue_lily_flower": "Блакитна квітка латаття",
   "block.lilybloom.potted_blue_lily_flower": "Блакитна квітка латаття в горщику",
   "modmenu.descriptionTranslation.lilybloom": "Квітуче латаття чотирьох кольорів (рожеве, біле, жовте, блакитне) зі стадіями: бутон, напіврозкритий бутон, квітка. Росте від кісткового борошна, розпускається само і генерується в болотах. Ножицями зрізається квітка латаття — її можна посадити в землю або в горщик. Потрібен і на сервері, і на клієнті.",
-  "modmenu.summaryTranslation.lilybloom": "Квітуче латаття чотирьох кольорів і квітка латаття для горщика."
+  "modmenu.summaryTranslation.lilybloom": "Квітуче латаття чотирьох кольорів і квітка латаття для горщика.",
+  "pack.lilybloom.hd_32x": "Lily Bloom 32x",
+  "pack.lilybloom.hd_32x.description": "Текстури Lily Bloom для паків 32x (Faithful 32x). Вмикається сам",
+  "pack.lilybloom.hd_64x": "Lily Bloom 64x",
+  "pack.lilybloom.hd_64x.description": "Текстури Lily Bloom для паків 64x (Faithful 64x). Вмикається сам"
 }

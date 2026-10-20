@@ -1,7 +1,7 @@
 {
   "parent": "lilybloom:block/template_blooming_lily_pad",
   "textures": {
-    "pad": "lilybloom:block/blooming_lily_pad",
+    "pad": "minecraft:block/lily_pad",
     "flower": "lilybloom:block/blue_lily_flower"
   }
 }
