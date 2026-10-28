@@ -1,7 +1,7 @@
 package io.github.jemyz3653.lilybloom.registry;
 
 import io.github.jemyz3653.lilybloom.LilyColor;
-import io.github.jemyz3653.lilybloom.item.GiantLilyPadItem;
+import io.github.jemyz3653.lilybloom.item.BigLilyPadItem;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
@@ -41,8 +41,12 @@ public final class ModItems {
     public static final Item BLOOMING_LILY_PAD = BLOOMING_LILY_PADS.get(LilyColor.PINK);
     public static final Item LILY_FLOWER = LILY_FLOWERS.get(LilyColor.PINK);
 
-    /** Крупная кувшинка: ставится на воду и занимает 4×4 блока. */
-    public static final Item GIANT_LILY_PAD = registerBlockItem(ModBlocks.GIANT_LILY_PAD, GiantLilyPadItem::new,
+    /** Средняя, большая и огромная кувшинки: ставятся на воду и занимают 2×2, 3×3 и 4×4 блока. */
+    public static final Item MEDIUM_LILY_PAD = registerBlockItem(ModBlocks.MEDIUM_LILY_PAD, BigLilyPadItem::new,
+            new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM));
+    public static final Item LARGE_LILY_PAD = registerBlockItem(ModBlocks.LARGE_LILY_PAD, BigLilyPadItem::new,
+            new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH));
+    public static final Item GIANT_LILY_PAD = registerBlockItem(ModBlocks.GIANT_LILY_PAD, BigLilyPadItem::new,
             new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH));
 
     private ModItems() {

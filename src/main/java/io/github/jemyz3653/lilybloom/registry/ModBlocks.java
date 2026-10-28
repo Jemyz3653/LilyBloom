@@ -3,8 +3,11 @@ package io.github.jemyz3653.lilybloom.registry;
 import io.github.jemyz3653.lilybloom.LilyBloom;
 import io.github.jemyz3653.lilybloom.LilyColor;
 import io.github.jemyz3653.lilybloom.block.BloomingLilyPadBlock;
+import io.github.jemyz3653.lilybloom.block.BigLilyPadBlock;
 import io.github.jemyz3653.lilybloom.block.GiantLilyPadBlock;
+import io.github.jemyz3653.lilybloom.block.LargeLilyPadBlock;
 import io.github.jemyz3653.lilybloom.block.LilyFlowerBlock;
+import io.github.jemyz3653.lilybloom.block.MediumLilyPadBlock;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
@@ -73,14 +76,31 @@ public final class ModBlocks {
     public static final Block LILY_FLOWER = LILY_FLOWERS.get(LilyColor.PINK);
     public static final Block POTTED_LILY_FLOWER = POTTED_LILY_FLOWERS.get(LilyColor.PINK);
 
-    /** Крупная кувшинка 4×4 (16 одинаковых блоков с координатами части внутри листа). */
-    public static final Block GIANT_LILY_PAD = register("giant_lily_pad", GiantLilyPadBlock::new,
-            BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.PLANT)
-                    .instabreak()
-                    .sound(SoundType.LILY_PAD)
-                    .noOcclusion()
-                    .pushReaction(PushReaction.POPPED));
+    /** Средняя кувшинка 2×2 (4 одинаковых блока с координатами части внутри листа). */
+    public static final Block MEDIUM_LILY_PAD = register("medium_lily_pad", MediumLilyPadBlock::new, bigPadProperties());
+    /** Большая кувшинка 3×3. */
+    public static final Block LARGE_LILY_PAD = register("large_lily_pad", LargeLilyPadBlock::new, bigPadProperties());
+    /** Огромная кувшинка 4×4 (id с 1.2.0, когда она была единственной крупной). */
+    public static final Block GIANT_LILY_PAD = register("giant_lily_pad", GiantLilyPadBlock::new, bigPadProperties());
+
+    private static BlockBehaviour.Properties bigPadProperties() {
+        return BlockBehaviour.Properties.of()
+                .mapColor(MapColor.PLANT)
+                .instabreak()
+                .sound(SoundType.LILY_PAD)
+                .noOcclusion()
+                .pushReaction(PushReaction.POPPED);
+    }
+
+    /** Крупная кувшинка со стороной size (2, 3 или 4). */
+    public static BigLilyPadBlock bigLilyPad(final int size) {
+        return (BigLilyPadBlock) switch (size) {
+            case MediumLilyPadBlock.SIZE -> MEDIUM_LILY_PAD;
+            case LargeLilyPadBlock.SIZE -> LARGE_LILY_PAD;
+            case GiantLilyPadBlock.SIZE -> GIANT_LILY_PAD;
+            default -> throw new IllegalArgumentException("no lily pad of size " + size);
+        };
+    }
 
     private ModBlocks() {
     }

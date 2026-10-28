@@ -1,0 +1,124 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "lilybloom:block/medium_lily_pad",
+    "pad": "lilybloom:block/medium_lily_pad",
+    "rim": "lilybloom:block/giant_lily_pad_rim"
+  },
+  "elements": [
+    {
+      "from": [0, 0.25, 0],
+      "to": [16, 0.25, 16],
+      "faces": {
+        "down": {
+          "uv": [0, 8, 8, 0],
+          "texture": "#pad"
+        },
+        "up": {
+          "uv": [0, 0, 8, 8],
+          "texture": "#pad"
+        }
+      }
+    },
+    {
+      "from": [-0.557, 0.25, 13.951],
+      "to": [4.05, 2.25, 13.951],
+      "rotation": {
+        "origin": [1.747, 0.25, 13.951],
+        "x": 0,
+        "y": 81.818,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.606, 2.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.606, 10.0],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [0.598, 0.25, 10.018],
+      "to": [5.204, 2.25, 10.018],
+      "rotation": {
+        "origin": [2.901, 0.25, 10.018],
+        "x": 0,
+        "y": 65.455,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.606, 2.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.606, 10.0],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [2.814, 0.25, 6.57],
+      "to": [7.42, 2.25, 6.57],
+      "rotation": {
+        "origin": [5.117, 0.25, 6.57],
+        "x": 0,
+        "y": 49.091,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.606, 2.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.606, 10.0],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [5.912, 0.25, 3.886],
+      "to": [10.518, 2.25, 3.886],
+      "rotation": {
+        "origin": [8.215, 0.25, 3.886],
+        "x": 0,
+        "y": 32.727,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.606, 2.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.606, 10.0],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [9.64, 0.25, 2.183],
+      "to": [14.246, 2.25, 2.183],
+      "rotation": {
+        "origin": [11.943, 0.25, 2.183],
+        "x": 0,
+        "y": 16.364,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.606, 2.0],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.606, 10.0],
+          "texture": "#rim"
+        }
+      }
+    }
+  ]
+}

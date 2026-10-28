@@ -1,0 +1,79 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "lilybloom:large_lily_pad"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:large_lily_pad",
+                "state": {
+                  "flower": "pink",
+                  "stage": "bloom"
+                }
+              }
+            },
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:white_lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:large_lily_pad",
+                "state": {
+                  "flower": "white",
+                  "stage": "bloom"
+                }
+              }
+            },
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:yellow_lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:large_lily_pad",
+                "state": {
+                  "flower": "yellow",
+                  "stage": "bloom"
+                }
+              }
+            },
+            {
+              "type": "minecraft:item",
+              "name": "lilybloom:blue_lily_flower",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "lilybloom:large_lily_pad",
+                "state": {
+                  "flower": "blue",
+                  "stage": "bloom"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "lilybloom:blocks/large_lily_pad"
+}

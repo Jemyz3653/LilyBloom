@@ -1,0 +1,172 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0"
+      },
+      "apply": {
+        "model": "lilybloom:block/medium_lily_pad_0_0"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "1"
+      },
+      "apply": {
+        "model": "lilybloom:block/medium_lily_pad_0_1"
+      }
+    },
+    {
+      "when": {
+        "part_x": "1",
+        "part_z": "0"
+      },
+      "apply": {
+        "model": "lilybloom:block/medium_lily_pad_1_0"
+      }
+    },
+    {
+      "when": {
+        "part_x": "1",
+        "part_z": "1"
+      },
+      "apply": {
+        "model": "lilybloom:block/medium_lily_pad_1_1"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "pink",
+        "stage": "bud"
+      },
+      "apply": {
+        "model": "lilybloom:block/medium_lily_flower_bud"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "pink",
+        "stage": "half_open"
+      },
+      "apply": {
+        "model": "lilybloom:block/medium_lily_flower_half_open"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "pink",
+        "stage": "bloom"
+      },
+      "apply": {
+        "model": "lilybloom:block/medium_lily_flower"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "white",
+        "stage": "bud"
+      },
+      "apply": {
+        "model": "lilybloom:block/white_medium_lily_flower_bud"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "white",
+        "stage": "half_open"
+      },
+      "apply": {
+        "model": "lilybloom:block/white_medium_lily_flower_half_open"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "white",
+        "stage": "bloom"
+      },
+      "apply": {
+        "model": "lilybloom:block/white_medium_lily_flower"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "yellow",
+        "stage": "bud"
+      },
+      "apply": {
+        "model": "lilybloom:block/yellow_medium_lily_flower_bud"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "yellow",
+        "stage": "half_open"
+      },
+      "apply": {
+        "model": "lilybloom:block/yellow_medium_lily_flower_half_open"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "yellow",
+        "stage": "bloom"
+      },
+      "apply": {
+        "model": "lilybloom:block/yellow_medium_lily_flower"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "blue",
+        "stage": "bud"
+      },
+      "apply": {
+        "model": "lilybloom:block/blue_medium_lily_flower_bud"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "blue",
+        "stage": "half_open"
+      },
+      "apply": {
+        "model": "lilybloom:block/blue_medium_lily_flower_half_open"
+      }
+    },
+    {
+      "when": {
+        "part_x": "0",
+        "part_z": "0",
+        "flower": "blue",
+        "stage": "bloom"
+      },
+      "apply": {
+        "model": "lilybloom:block/blue_medium_lily_flower"
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "lilybloom:block/large_lily_pad",
+    "pad": "lilybloom:block/large_lily_pad",
+    "rim": "lilybloom:block/giant_lily_pad_rim"
+  },
+  "elements": [
+    {
+      "from": [0, 0.25, 0],
+      "to": [16, 0.25, 16],
+      "faces": {
+        "down": {
+          "uv": [10.667, 5.333, 16, 0],
+          "texture": "#pad"
+        },
+        "up": {
+          "uv": [10.667, 0, 16, 5.333],
+          "texture": "#pad"
+        }
+      }
+    },
+    {
+      "from": [0.654, 0.25, 4.947],
+      "to": [5.346, 2.75, 4.947],
+      "rotation": {
+        "origin": [3, 0.25, 4.947],
+        "x": 0,
+        "y": -30,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.691, 2.5],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.691, 10.5],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [4.061, 0.25, 7.374],
+      "to": [8.753, 2.75, 7.374],
+      "rotation": {
+        "origin": [6.407, 0.25, 7.374],
+        "x": 0,
+        "y": -40.909,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.691, 2.5],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.691, 10.5],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [6.947, 0.25, 10.401],
+      "to": [11.639, 2.75, 10.401],
+      "rotation": {
+        "origin": [9.293, 0.25, 10.401],
+        "x": 0,
+        "y": -51.818,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.691, 2.5],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.691, 10.5],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [9.209, 0.25, 13.919],
+      "to": [13.9, 2.75, 13.919],
+      "rotation": {
+        "origin": [11.554, 0.25, 13.919],
+        "x": 0,
+        "y": -62.727,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.691, 2.5],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.691, 10.5],
+          "texture": "#rim"
+        }
+      }
+    }
+  ]
+}

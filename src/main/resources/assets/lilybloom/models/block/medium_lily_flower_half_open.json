@@ -1,0 +1,6 @@
+{
+  "parent": "lilybloom:block/template_medium_lily_flower_half_open",
+  "textures": {
+    "flower": "lilybloom:block/lily_flower"
+  }
+}
