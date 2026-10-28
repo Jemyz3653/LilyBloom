@@ -1,0 +1,24 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "lilybloom:block/large_lily_pad",
+    "pad": "lilybloom:block/large_lily_pad",
+    "rim": "lilybloom:block/giant_lily_pad_rim"
+  },
+  "elements": [
+    {
+      "from": [0, 0.25, 0],
+      "to": [16, 0.25, 16],
+      "faces": {
+        "down": {
+          "uv": [5.333, 10.667, 10.667, 5.333],
+          "texture": "#pad"
+        },
+        "up": {
+          "uv": [5.333, 5.333, 10.667, 10.667],
+          "texture": "#pad"
+        }
+      }
+    }
+  ]
+}

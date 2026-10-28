@@ -1,0 +1,6 @@
+{
+  "parent": "lilybloom:block/template_large_lily_flower_bud",
+  "textures": {
+    "flower": "lilybloom:block/giant_lily_flower"
+  }
+}

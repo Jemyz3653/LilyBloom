@@ -22,7 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Lily Bloom — цветущие кувшинки четырёх цветов со стадиями цветения и цветок кувшинки.
+ * Lily Bloom — цветущие кувшинки четырёх цветов со стадиями цветения, крупные кувшинки 2×2, 3×3 и 4×4
+ * и цветок кувшинки.
  *
  * <p>Один мод для сервера и клиента: блоки и предметы регистрируются одинаково с обеих сторон
  * (поэтому мод нужен и там, и там), а вся игровая логика — костная мука, ножницы, самостоятельное
@@ -42,6 +43,10 @@ public final class LilyBloom implements ModInitializer {
 
     public static final ResourceKey<PlacedFeature> BLOOMING_LILY_PATCH =
             ResourceKey.create(Registries.PLACED_FEATURE, id("patch_blooming_lily_pad"));
+    public static final ResourceKey<PlacedFeature> MEDIUM_LILY_PAD =
+            ResourceKey.create(Registries.PLACED_FEATURE, id("medium_lily_pad"));
+    public static final ResourceKey<PlacedFeature> LARGE_LILY_PAD =
+            ResourceKey.create(Registries.PLACED_FEATURE, id("large_lily_pad"));
     public static final ResourceKey<PlacedFeature> GIANT_LILY_PAD =
             ResourceKey.create(Registries.PLACED_FEATURE, id("giant_lily_pad"));
 
@@ -63,7 +68,8 @@ public final class LilyBloom implements ModInitializer {
 
         CreativeModeTabEvents.modifyOutputEvent(NATURAL_BLOCKS).register(output -> {
             output.insertAfter(Items.LILY_PAD, ModItems.BLOOMING_LILY_PADS.values().toArray(new ItemLike[0]));
-            output.insertAfter(ModItems.BLOOMING_LILY_PADS.get(LilyColor.BLUE), ModItems.GIANT_LILY_PAD);
+            output.insertAfter(ModItems.BLOOMING_LILY_PADS.get(LilyColor.BLUE),
+                    ModItems.MEDIUM_LILY_PAD, ModItems.LARGE_LILY_PAD, ModItems.GIANT_LILY_PAD);
             output.insertAfter(Items.LILY_OF_THE_VALLEY, ModItems.LILY_FLOWERS.values().toArray(new ItemLike[0]));
         });
 
@@ -72,10 +78,13 @@ public final class LilyBloom implements ModInitializer {
                     context -> context.hasPlacedFeature(VANILLA_LILY_PATCH),
                     GenerationStep.Decoration.VEGETAL_DECORATION,
                     BLOOMING_LILY_PATCH);
-            BiomeModifications.addFeature(
-                    context -> context.hasPlacedFeature(VANILLA_LILY_PATCH),
-                    GenerationStep.Decoration.VEGETAL_DECORATION,
-                    GIANT_LILY_PAD);
+            // крупные кувшинки: сначала огромные (им нужно больше места), потом большие и средние
+            for (ResourceKey<PlacedFeature> pad : java.util.List.of(GIANT_LILY_PAD, LARGE_LILY_PAD, MEDIUM_LILY_PAD)) {
+                BiomeModifications.addFeature(
+                        context -> context.hasPlacedFeature(VANILLA_LILY_PATCH),
+                        GenerationStep.Decoration.VEGETAL_DECORATION,
+                        pad);
+            }
         }
 
         LilyBloomConfig config = LilyBloomConfig.get();

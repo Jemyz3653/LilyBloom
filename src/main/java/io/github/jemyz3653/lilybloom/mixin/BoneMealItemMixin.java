@@ -1,8 +1,7 @@
 package io.github.jemyz3653.lilybloom.mixin;
 
+import io.github.jemyz3653.lilybloom.block.BigLilyPadBlock;
 import io.github.jemyz3653.lilybloom.block.BloomingLilyPadBlock;
-import io.github.jemyz3653.lilybloom.block.GiantFlower;
-import io.github.jemyz3653.lilybloom.block.GiantLilyPadBlock;
 import io.github.jemyz3653.lilybloom.block.LilyStage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -30,11 +29,10 @@ public abstract class BoneMealItemMixin {
     private static void lilybloom$growLily(final ItemStack itemStack, final Level level, final BlockPos pos,
                                            final CallbackInfoReturnable<Boolean> cir) {
         BlockState state = level.getBlockState(pos);
-        if (state.getBlock() instanceof GiantLilyPadBlock) {
-            // крупная кувшинка: цветок появляется/растёт; на распустившемся ничего не делаем (и Carpet Extra тоже)
-            boolean grown = level instanceof ServerLevel serverLevel && GiantLilyPadBlock.grow(serverLevel, pos, state, serverLevel.getRandom());
-            boolean canGrow = state.getValue(GiantLilyPadBlock.FLOWER) == GiantFlower.NONE
-                    || state.getValue(GiantLilyPadBlock.STAGE) != LilyStage.BLOOM;
+        if (state.getBlock() instanceof BigLilyPadBlock) {
+            // крупная кувшинка (2×2, 3×3, 4×4): цветок появляется/растёт; на распустившемся ничего не делаем (и Carpet Extra тоже)
+            boolean grown = level instanceof ServerLevel serverLevel && BigLilyPadBlock.grow(serverLevel, pos, state, serverLevel.getRandom());
+            boolean canGrow = BigLilyPadBlock.canGrow(state);
             if (grown) {
                 itemStack.shrink(1);
             }

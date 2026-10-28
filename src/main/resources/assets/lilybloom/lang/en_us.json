@@ -11,11 +11,13 @@
   "block.lilybloom.blue_blooming_lily_pad": "Blue Blooming Lily Pad",
   "block.lilybloom.blue_lily_flower": "Blue Water Lily",
   "block.lilybloom.potted_blue_lily_flower": "Potted Blue Water Lily",
-  "block.lilybloom.giant_lily_pad": "Giant Lily Pad",
+  "block.lilybloom.medium_lily_pad": "Medium Lily Pad",
+  "block.lilybloom.large_lily_pad": "Large Lily Pad",
+  "block.lilybloom.giant_lily_pad": "Huge Lily Pad",
   "pack.lilybloom.hd_32x": "Lily Bloom 32x",
   "pack.lilybloom.hd_32x.description": "Lily Bloom textures for 32x packs (Faithful 32x). Turns on by itself",
   "pack.lilybloom.hd_64x": "Lily Bloom 64x",
   "pack.lilybloom.hd_64x.description": "Lily Bloom textures for 64x packs (Faithful 64x). Turns on by itself",
-  "modmenu.descriptionTranslation.lilybloom": "Blooming lily pads in pink, white, yellow and blue with growth stages (bud, half-open, bloom), and giant 4x4 lily pads with a big flower of the same colours. Bone meal grows them, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. 32x and 64x textures switch on by themselves with packs like Faithful. Required on both server and client.",
-  "modmenu.summaryTranslation.lilybloom": "Blooming and giant lily pads in four colours, and a Water Lily flower you can pot."
+  "modmenu.descriptionTranslation.lilybloom": "Blooming lily pads in pink, white, yellow and blue with growth stages (bud, half-open, bloom), and big lily pads in three sizes (2x2, 3x3 and 4x4) with a big flower of the same colours. Bone meal grows them, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. 32x and 64x textures switch on by themselves with packs like Faithful. Required on both server and client.",
+  "modmenu.summaryTranslation.lilybloom": "Blooming lily pads in four colours, big 2x2 to 4x4 lily pads, and a Water Lily flower you can pot."
 }

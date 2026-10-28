@@ -1,0 +1,64 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "lilybloom:block/large_lily_pad",
+    "pad": "lilybloom:block/large_lily_pad",
+    "rim": "lilybloom:block/giant_lily_pad_rim"
+  },
+  "elements": [
+    {
+      "from": [0, 0.25, 0],
+      "to": [16, 0.25, 16],
+      "faces": {
+        "down": {
+          "uv": [5.333, 5.333, 10.667, 0],
+          "texture": "#pad"
+        },
+        "up": {
+          "uv": [5.333, 0, 10.667, 5.333],
+          "texture": "#pad"
+        }
+      }
+    },
+    {
+      "from": [0.468, 0.25, 2.62],
+      "to": [5.159, 2.75, 2.62],
+      "rotation": {
+        "origin": [2.813, 0.25, 2.62],
+        "x": 0,
+        "y": 13.636,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.691, 2.5],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.691, 10.5],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [12.85, 0.25, 3.21],
+      "to": [17.541, 2.75, 3.21],
+      "rotation": {
+        "origin": [15.195, 0.25, 3.21],
+        "x": 0,
+        "y": -19.091,
+        "z": 0
+      },
+      "faces": {
+        "south": {
+          "uv": [0, 0, 4.691, 2.5],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [0, 8, 4.691, 10.5],
+          "texture": "#rim"
+        }
+      }
+    }
+  ]
+}
