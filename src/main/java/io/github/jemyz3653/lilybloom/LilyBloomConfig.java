@@ -46,6 +46,8 @@ public final class LilyBloomConfig {
      * 32x или 64x; "32x" / "64x" — всегда; "off" — не трогать (паки можно включить вручную в списке ресурспаков).
      */
     public String hdTextures = HD_AUTO;
+    /** Client: optional sparks above glowing flowers; actual emitted block light is unaffected. */
+    public boolean glowParticles = true;
 
     public static LilyBloomConfig get() {
         return instance;

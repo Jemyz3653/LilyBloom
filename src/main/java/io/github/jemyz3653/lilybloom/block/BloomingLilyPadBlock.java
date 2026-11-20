@@ -1,6 +1,7 @@
 package io.github.jemyz3653.lilybloom.block;
 
 import io.github.jemyz3653.lilybloom.LilyBloom;
+import io.github.jemyz3653.lilybloom.LilyTraits;
 import io.github.jemyz3653.lilybloom.LilyBloomConfig;
 import io.github.jemyz3653.lilybloom.LilyColor;
 import io.github.jemyz3653.lilybloom.registry.ModBlocks;
@@ -48,6 +49,7 @@ import org.jspecify.annotations.Nullable;
  * <p>От ванильной кувшинки наследуется всё остальное: ставится на воду/лёд, лодка ломает и не тормозит.
  */
 public class BloomingLilyPadBlock extends LilyPadBlock {
+    public static final net.minecraft.world.level.block.state.properties.BooleanProperty HAS_FLOWER = net.minecraft.world.level.block.state.properties.BooleanProperty.create("has_flower");
     public static final EnumProperty<LilyStage> STAGE = EnumProperty.create("stage", LilyStage.class);
 
     /** Ножницы из других модов (общий тег Fabric/NeoForge). */
@@ -58,7 +60,7 @@ public class BloomingLilyPadBlock extends LilyPadBlock {
     public BloomingLilyPadBlock(final LilyColor color, final Properties properties) {
         super(properties);
         this.color = color;
-        registerDefaultState(stateDefinition.any().setValue(STAGE, LilyStage.BLOOM));
+        registerDefaultState(LilyTraits.defaults(stateDefinition.any().setValue(STAGE, LilyStage.BLOOM).setValue(HAS_FLOWER,true)));
     }
 
     public LilyColor getColor() {
@@ -68,7 +70,7 @@ public class BloomingLilyPadBlock extends LilyPadBlock {
     @Override
     protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(STAGE);
+        builder.add(STAGE,HAS_FLOWER,LilyTraits.NIGHT,LilyTraits.GLOW,LilyTraits.LEAF,LilyTraits.PATTERN);
     }
 
     public static boolean isShears(final ItemStack stack) {
@@ -76,23 +78,23 @@ public class BloomingLilyPadBlock extends LilyPadBlock {
     }
 
     public static boolean isFullBloom(final BlockState state) {
-        return state.getBlock() instanceof BloomingLilyPadBlock && state.getValue(STAGE) == LilyStage.BLOOM;
+        return state.getBlock() instanceof BloomingLilyPadBlock && state.getValue(HAS_FLOWER) && state.getValue(STAGE) == LilyStage.BLOOM;
     }
 
     // ---------------------------------------------------------------- рост бутонов
 
     @Override
     protected boolean isRandomlyTicking(final BlockState state) {
-        return state.getValue(STAGE) != LilyStage.BLOOM;
+        return !state.getValue(HAS_FLOWER) || state.getValue(STAGE) != LilyStage.BLOOM;
     }
 
     @Override
     protected void randomTick(final BlockState state, final ServerLevel level, final BlockPos pos, final RandomSource random) {
         LilyBloomConfig config = LilyBloomConfig.get();
-        if (!config.naturalBlooming || state.getValue(STAGE) == LilyStage.BLOOM || random.nextInt(config.growChance) != 0) {
+        if (!config.naturalBlooming || state.getValue(HAS_FLOWER) && state.getValue(STAGE) == LilyStage.BLOOM || random.nextInt(state.getValue(HAS_FLOWER)?config.growChance:config.budChance) != 0) {
             return;
         }
-        if (!canGrowNaturally(level, pos, config)) {
+        if (state.getValue(LilyTraits.NIGHT) ? !LilyTraits.isNight(level) : !canGrowNaturally(level, pos, config)) {
             return;
         }
         advance(level, pos, state);
@@ -107,8 +109,8 @@ public class BloomingLilyPadBlock extends LilyPadBlock {
 
     /** Следующая стадия (бутон → полураскрытый → цветок). */
     public static void advance(final ServerLevel level, final BlockPos pos, final BlockState state) {
-        LilyStage next = state.getValue(STAGE).next();
-        level.setBlock(pos, state.setValue(STAGE, next), Block.UPDATE_ALL);
+        LilyStage next = state.getValue(HAS_FLOWER)?state.getValue(STAGE).next():LilyStage.BUD;
+        level.setBlock(pos, state.setValue(STAGE, next).setValue(HAS_FLOWER,true), Block.UPDATE_ALL);
         level.gameEvent(null, GameEvent.BLOCK_CHANGE, pos);
     }
 
@@ -192,7 +194,19 @@ public class BloomingLilyPadBlock extends LilyPadBlock {
         level.playSound(null, pos, SoundEvents.GROWING_PLANT_CROP, SoundSource.BLOCKS, 1.0F, 1.0F);
         dropFromBlockInteractLootTable(level, loot, pos, state, null, tool, source,
                 (serverLevel, drop) -> popResourceFromFace(serverLevel, pos, Direction.UP, drop));
-        level.setBlock(pos, Blocks.LILY_PAD.defaultBlockState(), Block.UPDATE_ALL);
+        boolean special=state.getValue(LilyTraits.NIGHT)||state.getValue(LilyTraits.GLOW)||state.getValue(LilyTraits.LEAF)!=LilyTraits.Leaf.ROUND||state.getValue(LilyTraits.PATTERN)!=LilyTraits.Pattern.PLAIN;
+        level.setBlock(pos,special?state.setValue(HAS_FLOWER,false).setValue(STAGE,LilyStage.BUD):Blocks.LILY_PAD.defaultBlockState(),Block.UPDATE_ALL);
         level.gameEvent(source, GameEvent.SHEAR, pos);
+    }
+
+    @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
+        super.onPlace(state,level,pos,previous,moving);
+        LilyTraits.schedule(level,pos,state);
+    }
+    @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        LilyTraits.nightTick(level,pos,state);
+    }
+    @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        LilyTraits.animate(level,pos,state,random);
     }
 }

@@ -45,6 +45,7 @@ public final class ModBlocks {
                     properties -> new BloomingLilyPadBlock(color, properties),
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.PLANT)
+                .lightLevel(io.github.jemyz3653.lilybloom.LilyTraits::light)
                             .instabreak()
                             .sound(SoundType.LILY_PAD)
                             .noOcclusion()
@@ -86,6 +87,7 @@ public final class ModBlocks {
     private static BlockBehaviour.Properties bigPadProperties() {
         return BlockBehaviour.Properties.of()
                 .mapColor(MapColor.PLANT)
+                .lightLevel(io.github.jemyz3653.lilybloom.LilyTraits::light)
                 .instabreak()
                 .sound(SoundType.LILY_PAD)
                 .noOcclusion()

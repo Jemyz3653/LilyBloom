@@ -28,7 +28,7 @@ public final class ModItems {
         Map<LilyColor, Item> blooming = new EnumMap<>(LilyColor.class);
         Map<LilyColor, Item> flowers = new EnumMap<>(LilyColor.class);
         for (LilyColor color : LilyColor.values()) {
-            blooming.put(color, registerBlockItem(ModBlocks.BLOOMING_LILY_PADS.get(color), PlaceOnWaterBlockItem::new,
+            blooming.put(color, registerBlockItem(ModBlocks.BLOOMING_LILY_PADS.get(color), io.github.jemyz3653.lilybloom.item.FloweringLilyPadItem::new,
                     new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM)));
             flowers.put(color, registerBlockItem(ModBlocks.LILY_FLOWERS.get(color), BlockItem::new,
                     new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM)));
@@ -48,6 +48,13 @@ public final class ModItems {
             new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH));
     public static final Item GIANT_LILY_PAD = registerBlockItem(ModBlocks.GIANT_LILY_PAD, BigLilyPadItem::new,
             new Item.Properties().compostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH));
+
+    public static final Item TRANSPLANTER = registerTool("lily_transplanter", new Item.Properties().durability(256));
+    public static final Item LUNAR_POLLEN = registerTool("lunar_pollen", new Item.Properties());
+    private static Item registerTool(String name, Item.Properties properties) {
+        var key=ResourceKey.create(Registries.ITEM,io.github.jemyz3653.lilybloom.LilyBloom.id(name));
+        return Registry.register(BuiltInRegistries.ITEM,key,new Item(properties.setId(key)));
+    }
 
     private ModItems() {
     }

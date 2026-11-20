@@ -47,7 +47,11 @@ public class BigLilyPadItem extends PlaceOnWaterBlockItem {
             return InteractionResult.FAIL;
         }
         if (!level.isClientSide()) {
-            pad.placeAt(level, origin, GiantFlower.NONE, LilyStage.BLOOM, Block.UPDATE_ALL);
+            var traits=context.getItemInHand().getOrDefault(net.minecraft.core.component.DataComponents.BLOCK_STATE,
+                    net.minecraft.world.item.component.BlockItemStateProperties.EMPTY).apply(pad.defaultBlockState());
+            for(int x=0;x<pad.size();x++)for(int z=0;z<pad.size();z++)
+                level.setBlock(origin.offset(x,0,z),traits.setValue(pad.partX(),x).setValue(pad.partZ(),z),Block.UPDATE_ALL);
+            io.github.jemyz3653.lilybloom.LilyTraits.schedule(level,origin.offset(pad.anchor(),0,pad.anchor()),traits);
             BlockState placed = level.getBlockState(clicked);
             SoundType sound = placed.getSoundType();
             Vec3 center = new Vec3(origin.getX() + pad.size() / 2.0, origin.getY(), origin.getZ() + pad.size() / 2.0);

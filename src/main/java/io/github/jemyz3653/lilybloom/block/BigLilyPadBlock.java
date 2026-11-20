@@ -1,6 +1,7 @@
 package io.github.jemyz3653.lilybloom.block;
 
 import io.github.jemyz3653.lilybloom.LilyBloom;
+import io.github.jemyz3653.lilybloom.LilyTraits;
 import io.github.jemyz3653.lilybloom.LilyBloomConfig;
 import io.github.jemyz3653.lilybloom.LilyColor;
 import io.github.jemyz3653.lilybloom.registry.ModItems;
@@ -62,9 +63,9 @@ public abstract class BigLilyPadBlock extends LilyPadBlock {
         super(properties);
         this.size = size;
         this.shearingLoot = ResourceKey.create(Registries.LOOT_TABLE, LilyBloom.id("shearing/" + name));
-        registerDefaultState(stateDefinition.any()
+        registerDefaultState(LilyTraits.defaults(stateDefinition.any()
                 .setValue(partX(), 0).setValue(partZ(), 0)
-                .setValue(FLOWER, GiantFlower.NONE).setValue(STAGE, LilyStage.BLOOM));
+                .setValue(FLOWER, GiantFlower.NONE).setValue(STAGE, LilyStage.BLOOM)).setValue(LilyTraits.DECOR,LilyTraits.Decoration.NONE));
     }
 
     /** Координата части по x, 0..size-1 (у каждого размера своё свойство с нужным диапазоном). */
@@ -80,7 +81,7 @@ public abstract class BigLilyPadBlock extends LilyPadBlock {
     @Override
     protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(partX(), partZ(), FLOWER, STAGE);
+        builder.add(partX(), partZ(), FLOWER, STAGE,LilyTraits.NIGHT,LilyTraits.GLOW,LilyTraits.LEAF,LilyTraits.PATTERN,LilyTraits.DECOR);
     }
 
     // ---------------------------------------------------------------- геометрия листа
@@ -177,6 +178,7 @@ public abstract class BigLilyPadBlock extends LilyPadBlock {
 
     /** Цветок по костной муке: нет цветка → бутон случайного цвета, бутон → полураскрытый → цветок. false — расти некуда. */
     public static boolean grow(final ServerLevel level, final BlockPos anyPart, final BlockState state, final RandomSource random) {
+        if(state.getValue(LilyTraits.DECOR)!=LilyTraits.Decoration.NONE)return false;
         GiantFlower flower = state.getValue(FLOWER);
         if (flower == GiantFlower.NONE) {
             setFlower(level, anyPart, GiantFlower.of(LilyColor.random(random)), LilyStage.BUD);
@@ -191,7 +193,7 @@ public abstract class BigLilyPadBlock extends LilyPadBlock {
 
     /** Может ли костная мука что-то сделать (нет цветка или он ещё не распустился). */
     public static boolean canGrow(final BlockState state) {
-        return state.getValue(FLOWER) == GiantFlower.NONE || state.getValue(STAGE) != LilyStage.BLOOM;
+        return state.getValue(LilyTraits.DECOR)==LilyTraits.Decoration.NONE && (state.getValue(FLOWER) == GiantFlower.NONE || state.getValue(STAGE) != LilyStage.BLOOM);
     }
 
     public static boolean isFullBloom(final BlockState state) {
@@ -240,7 +242,7 @@ public abstract class BigLilyPadBlock extends LilyPadBlock {
         if (random.nextInt(bud ? config.budChance : config.growChance) != 0) {
             return;
         }
-        if (!level.canSeeSky(pos) || (config.onlyDuringDay && !level.isBrightOutside())) {
+        if (!level.canSeeSky(pos) || (state.getValue(LilyTraits.NIGHT) ? !LilyTraits.isNight(level) : config.onlyDuringDay && !level.isBrightOutside())) {
             return;
         }
         grow(level, pos, state, random);
@@ -258,7 +260,7 @@ public abstract class BigLilyPadBlock extends LilyPadBlock {
             final InteractionHand hand,
             final BlockHitResult hitResult) {
         LilyColor color = ModItems.flowerColor(itemStack);
-        if (color != null && state.getValue(FLOWER) == GiantFlower.NONE) {
+        if (color != null && state.getValue(FLOWER) == GiantFlower.NONE && state.getValue(LilyTraits.DECOR)==LilyTraits.Decoration.NONE) {
             if (level instanceof ServerLevel) {
                 Item flower = itemStack.getItem();
                 setFlower(level, pos, GiantFlower.of(color), LilyStage.BLOOM);
@@ -288,5 +290,16 @@ public abstract class BigLilyPadBlock extends LilyPadBlock {
                 (serverLevel, drop) -> popResourceFromFace(serverLevel, anchor, Direction.UP, drop));
         setFlower(level, anyPart, GiantFlower.NONE, LilyStage.BLOOM);
         level.gameEvent(source, GameEvent.SHEAR, anchor);
+    }
+
+    @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
+        super.onPlace(state,level,pos,previous,moving);
+        LilyTraits.schedule(level,pos,state);
+    }
+    @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        LilyTraits.nightTick(level,pos,state);
+    }
+    @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        LilyTraits.animate(level,pos,state,random);
     }
 }
