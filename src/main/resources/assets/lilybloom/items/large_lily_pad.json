@@ -1,6 +1,1 @@
-{
-  "model": {
-    "type": "minecraft:model",
-    "model": "lilybloom:item/large_lily_pad"
-  }
-}
+{"model":{"type":"minecraft:select","property":"minecraft:block_state","block_state_property":"leaf_shape","cases":[{"when":"round","model":{"type":"minecraft:model","model":"lilybloom:item/v2/large_lily_pad_round"}},{"when":"oval","model":{"type":"minecraft:model","model":"lilybloom:item/v2/large_lily_pad_oval"}},{"when":"notched","model":{"type":"minecraft:model","model":"lilybloom:item/v2/large_lily_pad_notched"}},{"when":"curled","model":{"type":"minecraft:model","model":"lilybloom:item/v2/large_lily_pad_curled"}}],"fallback":{"type":"minecraft:model","model":"lilybloom:item/v2/large_lily_pad_round"}}}

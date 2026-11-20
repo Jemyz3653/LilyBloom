@@ -59,6 +59,7 @@ public final class LilyBloom implements ModInitializer {
         LilyBloomConfig.load();
         ModBlocks.init();
         ModItems.init();
+        LilyTraits.init();
         Registry.register(BuiltInRegistries.FEATURE_TYPE, id("giant_lily_pad"), GiantLilyPadFeature.CODEC);
 
         // цветы кувшинки горят, как остальные маленькие цветы (у ванильных 60 / 100); сами кувшинки, как и ванильная, не горят
@@ -70,6 +71,8 @@ public final class LilyBloom implements ModInitializer {
             output.insertAfter(Items.LILY_PAD, ModItems.BLOOMING_LILY_PADS.values().toArray(new ItemLike[0]));
             output.insertAfter(ModItems.BLOOMING_LILY_PADS.get(LilyColor.BLUE),
                     ModItems.MEDIUM_LILY_PAD, ModItems.LARGE_LILY_PAD, ModItems.GIANT_LILY_PAD);
+            output.accept(ModItems.TRANSPLANTER);
+            output.accept(ModItems.LUNAR_POLLEN);
             output.insertAfter(Items.LILY_OF_THE_VALLEY, ModItems.LILY_FLOWERS.values().toArray(new ItemLike[0]));
         });
 

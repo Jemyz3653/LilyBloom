@@ -1,42 +1,43 @@
 {
-	"schemaVersion": 1,
-	"id": "lilybloom",
-	"version": "${version}",
-	"name": "Lily Bloom",
-	"description": "Blooming lily pads in pink, white, yellow and blue, with growth stages (bud, half-open bud, bloom), and big lily pads in three sizes (2x2, 3x3 and 4x4) with a big flower of the same colours. Bone meal grows them, they bloom on their own and generate in swamps. Shear the flower off to get a Water Lily that can be planted on the ground or in a flower pot. Ships 32x and 64x textures that switch on by themselves with packs like Faithful. Required on both server and client.",
-	"authors": [
-		"Jemyz3653"
-	],
-	"contributors": [
-		"Claude (AI by Anthropic): code, textures and models"
-	],
-	"contact": {
-		"homepage": "https://github.com/Jemyz3653/LilyBloom",
-		"sources": "https://github.com/Jemyz3653/LilyBloom",
-		"issues": "https://github.com/Jemyz3653/LilyBloom/issues"
-	},
-	"license": "MIT",
-	"icon": "assets/lilybloom/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"io.github.jemyz3653.lilybloom.LilyBloom"
-		],
-		"client": [
-			"io.github.jemyz3653.lilybloom.client.LilyBloomClient"
-		]
-	},
-	"mixins": [
-		"lilybloom.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.19.0",
-		"minecraft": "~26.3",
-		"java": ">=25",
-		"fabric-biome-api-v1": "*",
-		"fabric-creative-tab-api-v1": "*",
-		"fabric-registry-sync-v0": "*",
-		"fabric-resource-loader-v1": "*",
-		"fabric-content-registries-v0": "*"
-	}
+  "schemaVersion": 1,
+  "id": "lilybloom",
+  "version": "${version}",
+  "name": "Lily Bloom",
+  "description": "Blooming lily pads in four colors and three large sizes, now with nocturnal flowers, glowing blooms, four leaf shapes, rare petal patterns and crossbreeding, floating candles and lanterns, and a transplanter that preserves the whole plant. Includes automatic 32x and 64x packs. Install on the server and every client.",
+  "authors": [
+    "Jemyz3653"
+  ],
+  "contributors": [
+    "Claude (AI by Anthropic): code, textures and models",
+    "ChatGPT - By OpenAI: Lily Bloom 2.0 features, models and verification"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Jemyz3653/LilyBloom",
+    "sources": "https://github.com/Jemyz3653/LilyBloom",
+    "issues": "https://github.com/Jemyz3653/LilyBloom/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/lilybloom/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.jemyz3653.lilybloom.LilyBloom"
+    ],
+    "client": [
+      "io.github.jemyz3653.lilybloom.client.LilyBloomClient"
+    ]
+  },
+  "mixins": [
+    "lilybloom.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-biome-api-v1": "*",
+    "fabric-creative-tab-api-v1": "*",
+    "fabric-registry-sync-v0": "*",
+    "fabric-resource-loader-v1": "*",
+    "fabric-content-registries-v0": "*"
+  }
 }

@@ -41,7 +41,7 @@ public abstract class BoneMealItemMixin {
         }
         boolean plainPad = state.is(Blocks.LILY_PAD);
         boolean growingBud = state.getBlock() instanceof BloomingLilyPadBlock
-                && state.getValue(BloomingLilyPadBlock.STAGE) != LilyStage.BLOOM;
+                && (!state.getValue(BloomingLilyPadBlock.HAS_FLOWER) || state.getValue(BloomingLilyPadBlock.STAGE) != LilyStage.BLOOM);
         if (!plainPad && !growingBud) {
             return;
         }
