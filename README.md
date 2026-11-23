@@ -2,6 +2,18 @@
 
 Цветущие кувшинки для **Minecraft Java 26.3 / Fabric**. Четыре цвета, три стадии цветения, маленькие листья и крупные кувшинки 2×2, 3×3 и 4×4. Цветы растут в болотах и мангровых болотах, срезаются ножницами и ставятся в горшки.
 
+## Guide Book / Иллюстрированный справочник
+
+[Открыть Guide Book / Open the Guide Book](https://lily-bloom-field-guide.stripyvine1.chatgpt.site)
+
+Справочник по Lily Bloom на русском и английском: рецепты, иллюстрации, выращивание, селекция и ночное цветение. Открывается отдельно в браузере; устанавливать его в мод не нужно.
+
+An illustrated Lily Bloom guide in Russian and English, with crafting recipes, growing, breeding and nocturnal flowers. It runs separately in your browser and does not need to be installed in the mod.
+
+> **Доступность:** сайт размещён на платформе OpenAI. Из-за региональных ограничений OpenAI он может не открываться в некоторых странах, включая РФ. Для открытия может потребоваться VPN; доступность не гарантируется.
+>
+> **Availability:** this website is hosted on OpenAI's platform. OpenAI's regional restrictions may make it inaccessible in some countries, including Russia. A VPN may be needed to open it; availability is not guaranteed.
+
 ## Установка
 
 Установите Java 25, Fabric Loader **0.19.5+**, Fabric API **0.163.0+26.3 или новее для 26.3** и `lilybloom-2.0.0+26.3.jar` в `mods/`. В одиночной игре достаточно установки на клиент. Для сервера нужна одинаковая версия и на сервере, и у всех игроков. Старый JAR мода удалите.
