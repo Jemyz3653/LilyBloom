@@ -4,15 +4,17 @@
 
 ## Guide Book / Иллюстрированный справочник
 
-[Открыть Guide Book / Open the Guide Book](https://lily-bloom-field-guide.stripyvine1.chatgpt.site)
+**[Открыть Guide Book на GitHub Pages / Open the Guide Book on GitHub Pages](https://jemyz3653.github.io/LilyBloom/)**
 
-Справочник по Lily Bloom на русском и английском: рецепты, иллюстрации, выращивание, селекция и ночное цветение. Открывается отдельно в браузере; устанавливать его в мод не нужно.
+Справочник по Lily Bloom на русском и английском: рецепты, иллюстрации, выращивание, селекция и ночное цветение. Открывается отдельно в браузере; устанавливать его в мод не нужно. На GitHub Pages вход в ChatGPT не нужен и региональные ограничения платформы OpenAI не применяются.
 
-An illustrated Lily Bloom guide in Russian and English, with crafting recipes, growing, breeding and nocturnal flowers. It runs separately in your browser and does not need to be installed in the mod.
+An illustrated Lily Bloom guide in Russian and English, with crafting recipes, growing, breeding and nocturnal flowers. It runs separately in your browser and does not need to be installed in the mod. The GitHub Pages edition requires no ChatGPT account and is not subject to OpenAI's regional platform restrictions.
 
-> **Доступность:** сайт размещён на платформе OpenAI. Из-за региональных ограничений OpenAI он может не открываться в некоторых странах, включая РФ. Для открытия может потребоваться VPN; доступность не гарантируется.
+[Дополнительная копия на ChatGPT.site / Alternative ChatGPT.site copy](https://lily-bloom-field-guide.stripyvine1.chatgpt.site)
+
+> **Доступность:** ограничения OpenAI относятся только к ссылке на **ChatGPT.site**. Эта копия может не открываться в некоторых странах, включая РФ; для неё может потребоваться VPN. К версии на **GitHub Pages** эти ограничения OpenAI не относятся.
 >
-> **Availability:** this website is hosted on OpenAI's platform. OpenAI's regional restrictions may make it inaccessible in some countries, including Russia. A VPN may be needed to open it; availability is not guaranteed.
+> **Availability:** OpenAI's restrictions apply only to the **ChatGPT.site** link. That copy may be unavailable in some countries, including Russia, and may require a VPN. These OpenAI restrictions do not apply to the **GitHub Pages** edition.
 
 ## Установка
 
@@ -80,3 +82,4 @@ JDK 25: `./gradlew build`. Результат в `build/libs/`. Готовые �
 ## Авторство и лицензия
 
 DeTem_Studio / Jemyz3653. Исходная версия создана при помощи Claude — Anthropic. Обновление 2.0.0 создано при помощи ChatGPT — By OpenAI. Собственный код и ресурсы — MIT, см. `LICENSE`; ссылки и производные игровых ресурсов описаны в `NOTICE.md`.
+

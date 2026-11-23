@@ -18,6 +18,20 @@ Version 2.0.0 adds nocturnal lilies, glow-coated flowers, four leaf shapes, floa
 
 Lily Bloom aims to stand out through careful visual quality, coherent models and textures, useful survival interactions and attention to compatibility. English and Russian item tooltips make special traits easy to recognise.
 
+### Guide Book / Иллюстрированный справочник
+
+**[Open the Guide Book on GitHub Pages / Открыть Guide Book на GitHub Pages](https://jemyz3653.github.io/LilyBloom/)**
+
+A standalone illustrated guide in Russian and English: crafting recipes, growing, breeding and nocturnal lilies. No installation in the mod and no ChatGPT account are required. The GitHub Pages edition is not subject to OpenAI's regional platform restrictions.
+
+Иллюстрированный справочник на русском и английском: рецепты, выращивание, селекция и ночное цветение. Работает отдельно в браузере. Для версии на GitHub Pages не нужен аккаунт ChatGPT; региональные ограничения платформы OpenAI на неё не распространяются.
+
+[Alternative ChatGPT.site copy / Дополнительная копия на ChatGPT.site](https://lily-bloom-field-guide.stripyvine1.chatgpt.site)
+
+**Availability:** OpenAI's restrictions apply only to the ChatGPT.site link. That copy may be unavailable in some countries, including Russia, and may require a VPN. These OpenAI restrictions do not apply to the GitHub Pages edition.
+
+**Доступность:** ограничения OpenAI относятся только к ссылке на ChatGPT.site. Эта копия может не открываться в некоторых странах, включая РФ; для неё может потребоваться VPN. К версии на GitHub Pages эти ограничения OpenAI не относятся.
+
 ### Gardening
 
 Use bone meal to grow buds and shears to harvest fully open flowers. Sneak with shears to change a leaf's shape. Apply Lunar Pollen to make a lily nocturnal; use honeycomb to restore its daytime habit. Glow ink sacs make flowers emit light, while ordinary ink sacs remove the glow coating.
@@ -39,3 +53,4 @@ Minecraft Java 26.3, Java 25, Fabric Loader 0.19.5+ and Fabric API 0.163.0+26.3 
 Source code: https://github.com/Jemyz3653/LilyBloom
 
 The original version was created with Claude — Anthropic. The 2.0.0 update was made with AI ChatGPT - By OpenAI.
+
